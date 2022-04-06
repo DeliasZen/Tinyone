@@ -1,0 +1,74 @@
+.features {
+  @extend %section;
+
+  &__title {
+    @extend %section-title;
+  }
+
+  &__description {
+    color: $color-gray-dark;
+
+    @extend %section-description;
+  }
+
+  &__content {
+    display: grid;
+
+    column-gap: $gap * 2;
+    @include lg-min {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: $gap * 3;
+    }
+    @include lg-sm {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: $gap * 2.5;
+    }
+    @include sm {
+      grid-template-columns: 1fr;
+      row-gap: $gap * 2;
+    }
+  }
+}
+
+.feature {
+  display: grid;
+
+  column-gap: $gap;
+  grid-template-areas: "fic ftl" "fic fds";
+  grid-template-rows: minmax($gap * 1.5, max-content) auto;
+  @include sm-min {
+    grid-template-columns: ($gap * 2.5) 1fr;
+  }
+  @include sm {
+    grid-template-columns: ($gap * 3) 1fr;
+  }
+  row-gap: $gap * 0.4;
+
+  &__title {
+    margin: 0;
+
+    font-size: 1.375rem;
+
+    grid-area: ftl;
+  }
+
+  &__description {
+      margin: 0;
+
+      color: $color-gray-light;
+
+      line-height: 1.3;
+
+      grid-area: fds;
+  }
+
+  &__icon {
+    text-align: center;
+    
+    grid-area: fic;
+
+    i {
+      font-size: 3.1rem;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.footer-contacts {
+  @include lg-min {
+    margin-bottom: $gap * 6.3;
+  }
+  @include lg-md {
+    margin-bottom: $gap * 4;
+  }
+  @include md-sm {
+    margin-bottom: $gap * 3;
+  }
+  @include sm {
+    margin-bottom: $gap * 2;
+  }
+
+  &__title {
+    color: $color-accent;
+
+    @extend %section-title;
+  }
+
+  &__description {
+    color: $color-gray-light;
+
+    @extend %section-description;
+  }
+
+  &__form {
+    display: grid;
+
+    gap: $gap;
+    @include lg-min {
+      margin: 0 ($gap * 5) ($gap * 3.5);
+
+      grid-template-columns: 1fr 127px;
+    }
+    @include lg-md {
+      margin: 0 ($gap * 4) ($gap * 2);
+
+      grid-template-columns: 1fr 127px;
+    }
+    @include md-sm {
+      margin: 0 0 $gap;
+
+      grid-template-columns: 1fr 127px;
+    }
+    @include sm {
+      margin: 0 0 $gap;
+    }
+
+    &-input {
+      padding: ($gap * 0.8) ($gap * 1.1);
+
+      @extend %form-preset;
+
+      &::placeholder {
+        color: $color-gray-light;
+      }
+    }
+
+    &-button {
+      cursor: pointer;
+
+      background-color: $color-accent;
+
+      font-weight: 700;
+
+      @extend %form-preset;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin: 0 ($gap * 0.75);
+
+      color: $color-accent;
+
+      font-size: 2.75rem;
+
+      &:hover,
+      &:focus {
+        color: $color-light;
+      }
+    }
+  }
+}

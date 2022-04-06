@@ -1,0 +1,71 @@
+.footer-block {
+  display: grid;
+
+  color: $color-gray-light;
+
+  line-height: 1.3;
+
+  column-gap: $gap;
+  @include lg-min {
+    grid-template-columns: 300px repeat(4, 1fr);
+  }
+  @include lg-md {
+    grid-template-columns: 350px repeat(2, 1fr);
+  }
+  @include md-sm {
+    grid-template-columns: 300px repeat(2, 1fr);
+  }
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  row-gap: $gap * 2;
+
+  a {
+    color: $color-gray-light;
+
+    &:hover,
+    &:focus {
+      color: $color-light;
+    }
+  }
+
+  ul {
+    @include unlist();
+  }
+
+  > div {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      width: 2px;
+
+      content: "";
+
+      background-color: rgba($color-light, 0.05);
+    }
+
+    &:hover {
+      &::after {
+        background-color: rgba($color-light, 0.1);
+      }
+    }
+  }
+
+  &__first {
+    @include lg-sm {
+      grid-row: 1 / span 2;
+    }
+    @include sm {
+      grid-column: 1 / span 2;
+    }
+
+    a {
+      font-weight: 700;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../libs/normalize-scss/sass/normalize/import-now";
+@import "../../libs/font-awesome/scss/font-awesome";
+
+@import "skins";
+@import "variables";
+@import "mixins";
+@import "mixins-media";
+@import "extends";
+
+@import "common";
+
+@import "header/header";
+@import "header/header-menu";
+@import "header/header-logo";
+@import "header/header-navbar";
+@import "header/header-slider";
+
+@import "sections/features";
+
+@import "footer/footer";
+@import "footer/footer-contacts";
+@import "footer/footer-block";

@@ -1,0 +1,110 @@
+// Reset margin, padding and list-style from a list.
+
+@mixin unlist($m: 0, $p: 0) {
+  margin: $m;
+  padding: $p;
+
+  list-style: none;
+}
+
+
+
+// Single-line text with a three-dot at the end
+
+@mixin text-shorten {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+// Multiline text with a triple-dot at the end
+
+@mixin block-shorten($fz: 1rem, $lh: 1.5, $h: 70px, $l: 3) {
+  display: -webkit-box;
+  overflow: hidden;
+
+  height: $h;
+
+  font-size: $fz;
+  line-height: $fz * $lh;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $l;
+}
+
+
+
+// The first parameter - color, the second - transparency
+// One parameter - black with the specified transparency
+
+@mixin bg-color($a: 0, $rgb: 0) {
+  background: rgba($rgb, $rgb, $rgb, $a);
+}
+
+
+
+// Turn off the ability to select an item
+
+@mixin unselectable {
+  user-select: none;
+
+  -webkit-touch-callout: none;
+}
+
+
+
+// Background image, for the whole block
+// @include bg-image("image.jpg");
+// @include bg-image("image.jpg", #ff00ff, "fixed");
+
+@mixin bg-image($img, $bgc: gray, $fixed: "none") {
+  background-color: $bgc;
+  background-image: url($img);
+  background-position: top center;
+  background-size: cover;
+  @if $fixed == "fixed" {
+    background-attachment: fixed;
+  }
+}
+
+
+
+@mixin block-header($mb: 10px) {
+  margin-top: 0;
+  margin-bottom: $mb;
+
+  border-bottom: 1px solid $color-dark;
+}
+
+
+
+// Visually hidden element
+
+@mixin visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  border: 0;
+}
+
+
+
+// Absolute positioning
+
+@mixin abs-position ($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

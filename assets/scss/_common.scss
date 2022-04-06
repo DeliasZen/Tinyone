@@ -1,0 +1,62 @@
+*{
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-main;
+  font-size: $font-size;
+}
+
+body {
+  overflow-x: hidden;
+
+  width: 100%;
+
+  transition: transform 0.25s;
+
+  background-color: $color-light;
+
+  &::before{ 
+    z-index: -10;
+
+    height: 0;
+
+    content: "";
+    transition: opacity 1s;
+
+    opacity: 0;
+    background-color: $color-primary;
+
+    @include abs-position(0, 18px);
+  }
+
+  &.active {
+    overflow-y:hidden;
+
+    padding-right: 18px;
+
+    transition: transform 0.5s;
+    transform: translateX(-$navbar-mobile-width + 18px);
+
+    &::before {
+      z-index: 10;
+
+      height: 100%;
+
+      opacity: 0.85;
+    }
+  }
+}
+a {
+  transition: color 0.5s;
+  text-decoration: none;
+
+  color: $color-primary;
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-right: $gap;
+  padding-left: $gap;
+}
